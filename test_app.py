@@ -1,8 +1,8 @@
 from app import app
 import unittest
 
-class FlaskAppTests(unittest.TestCase):
 
+class FlaskAppTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         pass
@@ -23,7 +23,7 @@ class FlaskAppTests(unittest.TestCase):
     def test_home_status_code(self):
         # sends HTTP GET request to the application
         # on the specified path
-        result = self.app.get('/')
+        result = self.app.get("/")
 
         # assert the status code of the response
         self.assertEqual(result.status_code, 200)
@@ -31,7 +31,10 @@ class FlaskAppTests(unittest.TestCase):
     def test_home_data(self):
         # sends HTTP GET request to the application
         # on the specified path
-        result = self.app.get('/')
+        result = self.app.get("/")
 
         # assert the response data
-        self.assertEqual(result.data, "Hi ! I\'m a Flask application. I was automatically tested and deployed using Travis.")
+        self.assertEqual(
+            result.data,
+            "Hi ! I'm a Flask application. I was automatically tested and deployed using Travis.",
+        )
